@@ -1,0 +1,63 @@
+#server:
+#  port: 9002
+#spring:
+#  application:
+#    name: serivce-zuul
+#zuul:
+#  #需要忽略的头部信息，不在传播到其他服务
+#  sensitiveHeaders: Access-Control-Allow-Origin,Access-Control-Allow-Methods
+#  ignored-headers:
+#  routes:
+#    #标识你服务的名字，这里可以自己定义，一般方便和规范来讲还是跟自己服务的名字一样
+#    user-service:
+#      #服务映射的路径，通过这路径就可以从外部访问你的服务了，目的是为了不爆露你机器的IP，面向服务的路由了，给你选一个可用的出来，
+#      #这里zuul是自动依赖hystrix，ribbon的，不是面向单机
+#      path: /user/**
+#      #这里一定要是你Eureka注册中心的服务的名称，是所以这里配置serviceId因为跟eureka结合了，如果单独使用zuul,那么就必须写自己机器的IP了，
+#      #如url:http://localhost:8080/  这样的不好就是写死IP了，万一这IP挂了，这高可用性，服务注册那套东西就用不起来了
+#      url: http://localhost:9003/
+#      #不删除前缀
+#      stripPrefix: false
+#    unauth-service:
+#      path: /unauth/**
+#      url: http://localhost:8082
+#      stripPrefix: false
+#    api-service:
+#      path: /api/**
+#      url: http://localhost:8082
+#      stripPrefix: false
+#    authority-service:
+#      path: /authority/**
+#      url: http://localhost:8082
+#      stripPrefix: false
+#    contract-service:
+#      path: /contract/**
+#      url: http://localhost:8082
+#      stripPrefix: false
+#    assume-service:
+#      path: /assume/**
+#      url: http://localhost:8082
+#      stripPrefix: false
+#    overdue-service:
+#      path: /overdue/**
+#      url: http://localhost:8082
+#      stripPrefix: false
+#    eSeal-service:
+#      path: /eSeal/**
+#      url: http://localhost:8082
+#      stripPrefix: false
+#    php-service:
+#      path: /index.php/**
+#      url: http://10.100.13.61
+#      stripPrefix: false
+#  host:
+#    connect-timeout-millis: 100000
+#    socket-timeout-millis: 100000
+#  add-host-header: true
+#
+#eureka:
+##客户端
+#  client:
+##注册中心地址
+#    service-url:
+#      defaultZone: http://localhost:9001/eureka/
