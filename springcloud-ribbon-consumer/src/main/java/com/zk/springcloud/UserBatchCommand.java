@@ -12,13 +12,12 @@ public class UserBatchCommand extends HystrixCommand<List<User>> {
     private List<Long> ids;
 
     @Autowired
-    UserService userService;
+    private UserService userService;
 
-    public UserBatchCommand(List<Long> ids, UserService userService) {
+    public UserBatchCommand(List<Long> ids) {
         super(Setter.withGroupKey(HystrixCommandGroupKey.Factory.asKey("CollapsingGroup"))
                 .andCommandKey(HystrixCommandKey.Factory.asKey("CollapsingKey")));
         this.ids = ids;
-        this.userService = userService;
     }
 
     @Override

@@ -30,6 +30,10 @@ public class ConsumerController {
         //return restTemplate.getForEntity("http://SERIVCE-USER/hello",String.class).getBody();
     }
 
+
+
+
+
     @GetMapping(value = "/getUserInfo")
     public String getUserInfo(){
         return restTemplate.exchange("http://SERIVCE-USER/getUserInfo/1", HttpMethod.GET, null, String.class).getBody();
@@ -43,10 +47,10 @@ public class ConsumerController {
     @RequestMapping("/test7")
     public void getUserBatchTest() throws ExecutionException, InterruptedException {
         HystrixRequestContext context = HystrixRequestContext.initializeContext();
-        UserCollapseCommand bc1 = new UserCollapseCommand(userService, 1l);
-        UserCollapseCommand bc2 = new UserCollapseCommand(userService, 2l);
-        UserCollapseCommand bc3 = new UserCollapseCommand(userService, 3l);
-        UserCollapseCommand bc4 = new UserCollapseCommand(userService, 4l);
+        UserCollapseCommand bc1 = new UserCollapseCommand(1l);
+        UserCollapseCommand bc2 = new UserCollapseCommand(2l);
+        UserCollapseCommand bc3 = new UserCollapseCommand(3l);
+        UserCollapseCommand bc4 = new UserCollapseCommand(4l);
         Future<User> q1 = bc1.queue();
         Future<User> q2 = bc2.queue();
         Future<User> q3 = bc3.queue();
