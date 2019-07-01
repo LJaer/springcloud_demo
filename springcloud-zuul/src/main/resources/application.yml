@@ -48,7 +48,7 @@
 #      stripPrefix: false
 #    php-service:
 #      path: /index.php/**
-#      url: http://10.100.13.61
+#      url: http://localhost
 #      stripPrefix: false
 #  host:
 #    connect-timeout-millis: 100000

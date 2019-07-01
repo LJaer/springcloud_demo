@@ -1,3 +1,4 @@
+/*
 package com.zk.springcloud.springcloudstream;
 
 import org.junit.Test;
@@ -21,3 +22,4 @@ public class SpringcloudStreamApplicationTests {
     }
 
 }
+*/

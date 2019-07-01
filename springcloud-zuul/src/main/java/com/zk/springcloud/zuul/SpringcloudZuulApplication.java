@@ -11,10 +11,10 @@ import org.springframework.context.annotation.Bean;
 @EnableEurekaClient
 public class SpringcloudZuulApplication {
 
-    @Bean
+/*    @Bean
     public AccessFilter accessFilter(){
         return new AccessFilter();
-    }
+    }*/
 
     public static void main(String[] args) {
         SpringApplication.run(SpringcloudZuulApplication.class, args);
